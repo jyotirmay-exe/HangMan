@@ -1,4 +1,21 @@
-const word = "TESTING";
+function fetchAPI() {
+    fetch("https://random-word-api.vercel.app/api?words=1&length=7").then(res => {
+            if (!res.ok) {
+                alert("Error occured. Please Retry");
+                window.location.href="/";
+            }
+            return res.json();
+        }).then(data => {
+            word = data[0].toUpperCase();
+            update();
+        }).catch(error => {
+            console.error("Error fetching word: ", error);
+            alert("Error occured. Please Retry");
+            window.location.href="/";
+        });
+}
+
+word = "";
 const keys = document.querySelectorAll(".key");
 const rulez = document.querySelector(".rules");
 
@@ -6,15 +23,19 @@ uniquechars = [];
 attempts = 7;
 guessed = [];
 
-for (char of word) {
-    if(uniquechars.indexOf(char)<0) {
-        uniquechars.push(char);
-    }
-}
-
 wordDiv = document.getElementById("word");
 
 function update() {
+    if(word===undefined) { return; }
+
+    if(!uniquechars.length) {    
+        for (char of word) {
+            if(uniquechars.indexOf(char)<0) {
+                uniquechars.push(char);
+            }
+        }
+    }
+    
     wordDiv.innerHTML = "";
     for(i=0; i<word.length; i++) {
         char = word.charAt(i);
@@ -30,17 +51,17 @@ function update() {
         setTimeout( () => {
             mainCont = document.querySelector(".container");
             mainCont.innerHTML = `<div class="end-msg">
-                            <h1>😞 Game Over 😞<br>Attempts Exhausted<br>Your word was "TESTING"</h1>
+                            <h1>😞 Game Over 😞<br>Attempts Exhausted<br>Your word was "${word}"</h1>
                             <div class="play-button" onclick="window.location.href='/game'">Play Again</div>
                             </div>`;
         }, 250);
     }
 
-    if(uniquechars.length === guessed.length) {
+    if(uniquechars.length>0 && (uniquechars.length === guessed.length)) {
         setTimeout( () => {
             mainCont = document.querySelector(".container");
             mainCont.innerHTML = `<div class="end-msg">
-                            <h1>🎉 Congratulations 🎉<br>Your word was "TESTING"</h1>
+                            <h1>🎉 Congratulations 🎉<br>Your word was "${word}"</h1>
                             <div class="play-button" onclick="window.location.href='/game'">Play Again</div>
                             </div>`;
         }, 1000);
@@ -99,8 +120,8 @@ function hideRules() {
 }
 
 window.onload = () => {
-    update();
-
+    word = fetchAPI();
+    
     keys.forEach(key => {
         key.addEventListener("click", ()=> {
             handleKeyPress(key);
