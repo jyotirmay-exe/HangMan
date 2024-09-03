@@ -28,8 +28,8 @@ h1 {
     margin-bottom: 50px;
     color: #333;
     width: 100%;
-    padding-bottom: 20px;
-    border-bottom: 3px #222 solid;
+    padding-bottom: 30px;
+    border-bottom: 3px #333 solid;
 }
 
 .play-button {
@@ -38,10 +38,12 @@ h1 {
     font-weight: 700;
     background-color: #fff;
     border: 1px black solid;
-    color: #222; 
+    color: #222;
+    cursor: pointer; 
     border-radius: 10px;
     text-decoration: none;
     transition: background-color 0.3s;
+    user-select: none;
 }
 
 .word{
@@ -104,20 +106,22 @@ button:disabled {
 .how-to, .close{
     text-decoration: underline;
     cursor: pointer;
+    user-select: none;
 }
 
 .rules {
     visibility: hidden;
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: white;
     border: 2px solid #222;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);
     padding: 20px;
     z-index: 1000;
-    width: 250px;
+    width: 300px;
 }
 
 .close{
@@ -139,6 +143,25 @@ button:disabled {
 .rules li {
     font-size: 14px;
     margin-bottom: 10px;
+}
+
+.end-msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #222;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 80vw;
+    height: 500px;
+    max-width: 700px;
 }
 
 @media (max-width: 800px) {
