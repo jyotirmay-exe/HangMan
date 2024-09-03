@@ -11,7 +11,7 @@ function fetchAPI() {
         }).catch(error => {
             console.error("Error fetching word: ", error);
             alert("Error occured. Please Retry");
-            window.location.href="/";
+            // window.location.href="/";
         });
 }
 
@@ -51,7 +51,7 @@ function update() {
         setTimeout( () => {
             mainCont = document.querySelector(".container");
             mainCont.innerHTML = `<div class="end-msg">
-                            <h1>😞 Game Over 😞<br>Attempts Exhausted<br>Your word was "${word}"</h1>
+                            <h2>😞 Game Over 😞<br>Attempts Exhausted<br>Your word was "${word}"</h2>
                             <div class="play-button" onclick="window.location.href='/game'">Play Again</div>
                             </div>`;
         }, 250);
@@ -61,7 +61,7 @@ function update() {
         setTimeout( () => {
             mainCont = document.querySelector(".container");
             mainCont.innerHTML = `<div class="end-msg">
-                            <h1>🎉 Congratulations 🎉<br>Your word was "${word}"</h1>
+                            <h2>🎉 Congratulations 🎉<br>Your word was "${word}"</h2>
                             <div class="play-button" onclick="window.location.href='/game'">Play Again</div>
                             </div>`;
         }, 1000);
