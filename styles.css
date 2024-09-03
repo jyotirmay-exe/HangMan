@@ -19,10 +19,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* background-color: white; */
     padding: 50px;
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 h1 {
@@ -56,6 +54,7 @@ h1 {
 }
 
 .character{
+    margin: 0 10px;
     outline: 2px solid #222;
     padding: 10px 20px;
 }
@@ -91,8 +90,19 @@ button:active, .play-button:hover{
     color: #fff;
 }
 
-.attempts{
-    font-size: 16px;
+button:disabled {
+    border: 1px #777 solid;
+    background-color: #c5c5c5;
+    color: #f0f0f0;
+}
+
+.attempts, .how-to{
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.how-to{
+    text-decoration: underline;
 }
 
 .rules {
@@ -140,19 +150,20 @@ button:active, .play-button:hover{
     }
     button {
         font-size: 20px;
-        width: 32px;
+        width: 35px;
         height: 45px;
     }
     .row{
-        gap: 5px;
+        gap: 2px;
     }
     .word{
         font-size: 28px;
     }
     .character{
-        padding: 0 8px;
+        margin: 0 8px;
+        padding: 2px 8px;
     }
-    .attempts{
-        font-size: 14px;
+    .attempts, .how-to{
+        font-size: 16px;
     }
 }
