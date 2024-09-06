@@ -24,7 +24,7 @@ body {
 }
 
 h1 {
-    font-size: 44px;
+    font-size: 36px;
     margin-bottom: 50px;
     color: #333;
     width: 100%;
@@ -47,8 +47,7 @@ h1 {
 }
 
 .word{
-    font-family: "Roboto Mono", monospace;
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 700;
     padding-bottom: 50px;
     border-bottom: 3px #222 solid;
@@ -56,6 +55,7 @@ h1 {
 }
 
 .character{
+    font-family: monospace;
     margin: 0 10px;
     outline: 2px solid #222;
     padding: 10px 20px;
@@ -65,12 +65,12 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 50px 0px;
+    margin: 20px 0px;
 }
 
 .row {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
     align-items: center;
 }
@@ -99,7 +99,7 @@ button:disabled {
 
 .attempts, .how-to{
     margin: 10px 0;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .how-to, .close{
@@ -154,21 +154,21 @@ button:disabled {
     max-width: 700px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .container{
         padding: 100px 0px;
     }
     h1, .word {
         width: 100%;
-        font-size: 28px;
+        font-size: 20px;
     }
     button {
         font-size: 20px;
-        width: 33px;
-        height: 45px;
+        width: 30px;
+        height: 35px;
     }
     .row{
-        gap: 5px;
+        gap: 2px;
     }
     .character{
         margin: 0 8px;
